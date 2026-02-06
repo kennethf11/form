@@ -79,7 +79,7 @@
 
             <div class="nowPlaying">
               <div class="nowLine">
-                <span class="pill" id="msgPill">choose wisely</span>
+                <span class="pill" id="msgPill">choose wisely now</span>
               </div>
 
               <div class="progressWrap">
@@ -134,18 +134,18 @@
         "NO (cap)",
         "NO (not valid)",
         "NO (try again)",
-        "NO (needle skipped)",
-        "NO (nice attempt)"
+        "NO (wrong answer)",
+        "NO (nice try)"
       ];
       noBtn.textContent = noTexts[Math.min(noClicks, noTexts.length - 1)];
 
       // Messages
       const msgs = [
-        "…are you sure about that?",
+        "are you sure about that",
         "are you SURE?",
         "stop playin",
-        "okay now you’re just testing the UI",
-        "just press yes PLSSS😭"
+        "STOP",
+        "just press yes PLSSS"
       ];
       msgPill.textContent = msgs[Math.min(noClicks - 1, msgs.length - 1)];
 
@@ -166,7 +166,7 @@
     });
 
     yesBtn.addEventListener("click", () => {
-      msgPill.textContent = "YAY :) confirmed.";
+      msgPill.textContent = "LET'S GOOO😆 confirmed :)";
       setLabel("confirmed");
       // quick spin before redirect
       record.classList.add("spinning");
