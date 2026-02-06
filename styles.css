@@ -543,4 +543,12 @@ input[type="range"]{
 .smallmuted{
   display:none;
 }
+.playingTitle{
+  font-family:"Playfair Display", serif;
+  font-size:18px;
+  letter-spacing:.05em;
+  margin-bottom:12px;
+  text-align:center;
+  opacity:.85;
+}
 
