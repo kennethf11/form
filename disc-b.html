@@ -10,77 +10,118 @@
 
 <body>
   <div class="wrap">
-    <div class="panel">
+    <div class="header">
       <div class="topline">
-        <div class="badge"><span class="dot"></span> VIRTUAL VINYL • DISC B</div>
+        <div class="badge"><span class="dot"></span> VINYL • DISC B</div>
         <a class="btn secondary" href="disc-a.html">← Back to Disc A</a>
       </div>
 
       <h1>Disc B</h1>
-      <p>Same rule: click a track to play the clip.</p>
+      <div class="discLabel"><span class="heart"></span> still tied 3–3… for now</div>
+      <p>Tap a track to play a short clip! Bonus track is hidden after this.</p>
     </div>
 
-    <div class="panel grid">
-      <div class="cover">
-        <img src="covers/disc-b.jpg" alt="Disc B cover" />
-        <div class="smallmuted">Disc B cover • replace <b>covers/disc-b.jpg</b></div>
-      </div>
+    <div class="gatefold">
+      <!-- LEFT SLEEVE -->
+      <section class="sleeve">
+        <div class="sleeveInner">
+          <div class="cover">
+            <img src="covers/disc-b.jpg" alt="Disc B cover" />
+            <div class="smallmuted">Replace <b>covers/disc-b.jpg</b> with any image</div>
+          </div>
 
-      <div class="trackPanel">
-        <div class="trackHeader">
-          <div class="title">Tracklist</div>
-          <div class="side">Side B</div>
-        </div>
+          <div class="recordWell">
+            <div class="record" id="record" aria-label="Spinning record">
+              <div class="grooves"></div>
+              <div class="labelCircle">
+                <div>
+                  <small>side b</small>
+                  <strong>disc b</strong>
+                </div>
+              </div>
+              <div class="centerHole"></div>
+            </div>
 
-        <div class="track"
-          data-id="b1"
-          data-label="Glitter — Tyler, The Creator"
-          data-audio="audio/glitter-tyler.mp3">
-          <div class="left">
-            <div class="num">1</div>
-            <div class="meta">
-              <div class="song">Glitter</div>
-              <div class="artist">Tyler, The Creator</div>
+            <div class="smallmuted" style="margin-top:10px;">
+              Record spins while audio plays ✨
             </div>
           </div>
-          <div class="playTag">click to play</div>
         </div>
+      </section>
 
-        <div class="track"
-          data-id="b2"
-          data-label="Just One Day — BTS"
-          data-audio="audio/just one day-bts.mp3">
-          <div class="left">
-            <div class="num">2</div>
-            <div class="meta">
-              <div class="song">Just One Day</div>
-              <div class="artist">BTS</div>
+      <div class="hinge" aria-hidden="true"></div>
+
+      <!-- RIGHT SLEEVE -->
+      <section class="sleeve">
+        <div class="sleeveInner">
+          <div class="trackPanel">
+            <div class="trackHeader">
+              <div class="title">Tracklist</div>
+              <div class="side">Disc B</div>
+            </div>
+
+            <div class="track"
+              data-id="b1"
+              data-label="Glitter — Tyler, The Creator"
+              data-audio="audio/glitter.mp3">
+              <div class="left">
+                <div class="num">1</div>
+                <div class="meta">
+                  <div class="song">Glitter</div>
+                  <div class="artist">Tyler, The Creator</div>
+                </div>
+              </div>
+              <div class="playTag">tap</div>
+            </div>
+
+            <div class="track"
+              data-id="b2"
+              data-label="Just One Day — BTS"
+              data-audio="audio/just-one-day.mp3">
+              <div class="left">
+                <div class="num">2</div>
+                <div class="meta">
+                  <div class="song">Just One Day</div>
+                  <div class="artist">BTS</div>
+                </div>
+              </div>
+              <div class="playTag">tap</div>
+            </div>
+
+            <div class="track"
+              data-id="b3"
+              data-label="Disillusioned — Daniel Caesar ft. serpentwithfeet"
+              data-audio="audio/disillusioned.mp3">
+              <div class="left">
+                <div class="num">3</div>
+                <div class="meta">
+                  <div class="song">Disillusioned</div>
+                  <div class="artist">Daniel Caesar, serpentwithfeet</div>
+                </div>
+              </div>
+              <div class="playTag">tap</div>
+            </div>
+
+            <!-- Now Playing + progress -->
+            <div class="nowPlaying">
+              <div class="nowLine">
+                <span class="pill" id="nowTitle">Now playing: (pick a track)</span>
+                <span class="time" id="timeReadout">0:00 / 0:00</span>
+              </div>
+
+              <div class="progressWrap">
+                <input id="progressRange" type="range" min="0" max="100" value="0" />
+                <div class="progressHint">Drag to scrub • click the same track to pause/resume</div>
+              </div>
+            </div>
+
+            <div class="navRow">
+              <span class="smallmuted"><b>bonus track</b> is next…</span>
+              <a class="btn" href="bonus.html">Bonus track →</a>
             </div>
           </div>
-          <div class="playTag">click to play</div>
         </div>
-
-        <div class="track"
-          data-id="b3"
-          data-label="Disillusioned — Daniel Caesar ft. serpentwithfeet"
-          data-audio="audio/disillusioned-danielcaesar.mp3">
-          <div class="left">
-            <div class="num">3</div>
-            <div class="meta">
-              <div class="song">Disillusioned</div>
-              <div class="artist">Daniel Caesar, serpentwithfeet</div>
-            </div>
-          </div>
-          <div class="playTag">click to play</div>
-        </div>
-
-        <div class="nowPlaying" id="nowPlaying"></div>
-
-        <div class="navRow">
-          <div class="smallmuted"><b>bonus track</b> is hidden on the next page…</div>
-          <a class="btn" href="bonus.html">Bonus track →</a>
-        </div>
-      </div>
+      </section>
     </div>
   </div>
 </body>
