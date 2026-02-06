@@ -10,90 +10,132 @@
 
 <body>
   <div class="wrap">
-    <div class="panel">
+    <div class="header">
       <div class="topline">
         <div class="badge"><span class="dot"></span> VINYL • DISC A</div>
-        <a class="btn secondary" href="disc-b.html">Go to Disc B →</a>
+        <a class="btn secondary" href="disc-b.html">Flip to Disc B →</a>
       </div>
 
-      <h1>hi jackie, since we can’t buy a vinyl this month, i made one </h1>
-      <p>Press a track to play a short clip.</p>
+      <h1>hi jackie, since we can’t buy a vinyl this month, i made one</h1>
+      <div class="discLabel"><span class="heart"></span> pressed for jgp • limited edition</div>
+      <p>Tap a track to play a short clip!</p>
     </div>
 
-    <div class="panel grid">
-      <div class="cover">
-        <img src="covers/disc-a.jpg" alt="Disc A cover" />
-        <div class="smallmuted">Disc A cover • replace <b>covers/disc-a.jpg</b> with any image</div>
-      </div>
+    <div class="gatefold">
+      <!-- LEFT SLEEVE -->
+      <section class="sleeve">
+        <div class="sleeveInner">
+          <div class="cover">
+            <img src="covers/disc-a.jpg" alt="Disc A cover" />
+            <div class="smallmuted">Replace <b>covers/disc-a.jpg</b> with any image</div>
+          </div>
 
-      <div class="trackPanel">
-        <div class="trackHeader">
-          <div class="title">Tracklist</div>
-          <div class="side">Side A</div>
-        </div>
+          <div class="recordWell">
+            <div class="record" id="record" aria-label="Spinning record">
+              <div class="grooves"></div>
+              <div class="labelCircle">
+                <div>
+                  <small>side a</small>
+                  <strong>disc a</strong>
+                </div>
+              </div>
+              <div class="centerHole"></div>
+            </div>
 
-        <div class="track"
-          data-id="a1"
-          data-label="Transform — Daniel Caesar"
-          data-audio="audio/transform-daniel caesar.mp3">
-          <div class="left">
-            <div class="num">1</div>
-            <div class="meta">
-              <div class="song">Transform</div>
-              <div class="artist">Daniel Caesar, Charlotte Day Wilson</div>
+            <div class="smallmuted" style="margin-top:10px;">
+              Record spins while audio plays ✨
             </div>
           </div>
-          <div class="playTag">click to play</div>
         </div>
+      </section>
 
-        <div class="track"
-          data-id="a2"
-          data-label="Softly — Clairo"
-          data-audio="audio/clairo-softly.mp3">
-          <div class="left">
-            <div class="num">2</div>
-            <div class="meta">
-              <div class="song">Softly</div>
-              <div class="artist">Clairo</div>
+      <div class="hinge" aria-hidden="true"></div>
+
+      <!-- RIGHT SLEEVE -->
+      <section class="sleeve">
+        <div class="sleeveInner">
+          <div class="trackPanel">
+            <div class="trackHeader">
+              <div class="title">Tracklist</div>
+              <div class="side">Disc A</div>
+            </div>
+
+            <div class="track"
+              data-id="a1"
+              data-label="Transform — Daniel Caesar"
+              data-audio="audio/transform-daniel caesar.mp3">
+              <div class="left">
+                <div class="num">1</div>
+                <div class="meta">
+                  <div class="song">Transform</div>
+                  <div class="artist">Daniel Caesar, Charlotte Day Wilson</div>
+                </div>
+              </div>
+              <div class="playTag">tap</div>
+            </div>
+
+            <div class="track"
+              data-id="a2"
+              data-label="Softly — Clairo"
+              data-audio="audio/clairo-softly.mp3">
+              <div class="left">
+                <div class="num">2</div>
+                <div class="meta">
+                  <div class="song">Softly</div>
+                  <div class="artist">Clairo</div>
+                </div>
+              </div>
+              <div class="playTag">tap</div>
+            </div>
+
+            <div class="track"
+              data-id="a3"
+              data-label="Love Is Everywhere — Magdalena Bay"
+              data-audio="audio/love is everywhere-magdalena bay.mp3">
+              <div class="left">
+                <div class="num">3</div>
+                <div class="meta">
+                  <div class="song">Love Is Everywhere</div>
+                  <div class="artist">Magdalena Bay</div>
+                </div>
+              </div>
+              <div class="playTag">tap</div>
+            </div>
+
+            <div class="track"
+              data-id="a4"
+              data-label="Bleed - Malcolm Todd ft. Omar Apollo"
+              data-audio="audio/bleed-malcolm todd.mp3">
+              <div class="left">
+                <div class="num">4</div>
+                <div class="meta">
+                  <div class="song">Bleed</div>
+                  <div class="artist">Malcolm Todd, Omar Apollo</div>
+                </div>
+              </div>
+              <div class="playTag">tap</div>
+            </div>
+
+            <!-- Now Playing + progress -->
+            <div class="nowPlaying">
+              <div class="nowLine">
+                <span class="pill" id="nowTitle">Now playing: (pick a track)</span>
+                <span class="time" id="timeReadout">0:00 / 0:00</span>
+              </div>
+
+              <div class="progressWrap">
+                <input id="progressRange" type="range" min="0" max="100" value="0" />
+                <div class="progressHint">Drag to scrub • click the same track to pause/resume</div>
+              </div>
+            </div>
+
+            <div class="navRow">
+              <span class="smallmuted">Disc A complete 🫶</span>
+              <a class="btn" href="disc-b.html">Flip to Disc B →</a>
             </div>
           </div>
-          <div class="playTag">click to play</div>
         </div>
-
-        <div class="track"
-          data-id="a3"
-          data-label="Love Is Everywhere — Magdalena Bay"
-          data-audio="audio/love is everywhere-magdalena bay.mp3">
-          <div class="left">
-            <div class="num">3</div>
-            <div class="meta">
-              <div class="song">Love Is Everywhere</div>
-              <div class="artist">Magdalena Bay</div>
-            </div>
-          </div>
-          <div class="playTag">click to play</div>
-        </div>
-
-        <div class="track"
-          data-id="a4"
-          data-label="Bleed - Malcolm Todd ft. Omar Apollo"
-          data-audio="audio/bleed-malcolm todd.mp3">
-          <div class="left">
-            <div class="num">4</div>
-            <div class="meta">
-              <div class="song">Bleed</div>
-              <div class="artist">Malcolm Todd, Omar Apollo</div>
-            </div>
-          </div>
-          <div class="playTag">click to play</div>
-        </div>
-
-        <div class="nowPlaying" id="nowPlaying"></div>
-
-        <div class="navRow">
-          <a class="btn" href="disc-b.html">Flip to Disc B →</a>
-        </div>
-      </div>
+      </section>
     </div>
   </div>
 </body>
