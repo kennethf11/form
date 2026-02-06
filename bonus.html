@@ -3,76 +3,185 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Bonus Track 💿</title>
+  <title>Bonus Track • 💿</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
   <div class="wrap">
-    <div class="panel">
+    <!-- Header -->
+    <div class="header">
       <div class="topline">
         <div class="badge"><span class="dot"></span> VINYL • BONUS TRACK</div>
-        <a class="btn secondary" href="disc-b.html">← Back to Disc B</a>
+        <a class="btn secondary" href="disc-b.html">← back to disc b</a>
       </div>
-      <h1>Bonus Track</h1>
-      <p>Okay last track hehe </p>
+
+      <h1>bonus track</h1>
+      <div class="discLabel"><span class="heart"></span> hidden cut • no skips</div>
+      <p>okay… last page. real question this time 😌</p>
     </div>
 
-    <div class="panel center">
-      <div class="cover" style="margin-bottom:14px;">
-        <img src="covers/bonus.jpg" alt="Bonus cover" />
-        <div class="smallmuted">Replace <b>covers/bonus.jpg</b> if you want</div>
-      </div>
+    <!-- Gatefold -->
+    <div class="gatefold">
+      <!-- LEFT SLEEVE: cover + “record” -->
+      <section class="sleeve">
+        <div class="sleeveInner">
 
-      <div class="bigQuestion">will you be my valentine? — kenneth</div>
-      <p id="msg">Choose wisely.</p>
+          <div class="cover">
+            <img src="covers/bonus.jpg" alt="Bonus track cover" />
+            <div class="smallmuted">replace <b>covers/bonus.jpg</b> if you want</div>
+          </div>
 
-      <div class="choiceRow">
-        <button class="choice" id="yesBtn">YES hehe</button>
-        <button class="choice no" id="noBtn">NO ur a chud</button>
-      </div>
+          <div class="recordWell">
+            <div class="record" id="record" aria-label="record">
+              <div class="grooves"></div>
 
-      <div class="navRow" style="justify-content:center; margin-top:18px;">
-        <a class="btn secondary" href="disc-a.html">Replay from Disc A</a>
-      </div>
+              <div class="labelCircle">
+                <div>
+                  <small>bonus track</small>
+                  <strong id="recordLabel">kenneth</strong>
+                </div>
+              </div>
+
+              <div class="centerHole"></div>
+            </div>
+
+            <div class="smallmuted" style="margin-top:10px;">
+              (this one’s a limited pressing)
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <div class="hinge" aria-hidden="true"></div>
+
+      <!-- RIGHT SLEEVE: question -->
+      <section class="sleeve">
+        <div class="sleeveInner">
+          <div class="trackPanel">
+
+            <div class="trackHeader">
+              <div class="title">Tracklist</div>
+              <div class="side">Bonus</div>
+            </div>
+
+            <!-- looks like a “track card” but it’s the question -->
+            <div class="track" style="cursor:default;">
+              <div class="left">
+                <div class="num">4</div>
+                <div class="meta">
+                  <div class="song">will you be my valentine?</div>
+                  <div class="artist">— kenneth</div>
+                </div>
+              </div>
+              <div class="playTag">no skips</div>
+            </div>
+
+            <div class="nowPlaying">
+              <div class="nowLine">
+                <span class="pill" id="msgPill">choose wisely.</span>
+                <span class="time" id="tinyNote">you can try “no” if you want…</span>
+              </div>
+
+              <div class="progressWrap">
+                <div class="progressHint" id="hint">
+                  (spoiler: this page was not designed for “no”)
+                </div>
+              </div>
+            </div>
+
+            <div class="choiceRow">
+              <button class="choice" id="yesBtn">YES hehe</button>
+              <button class="choice no" id="noBtn">NO ur a chud</button>
+            </div>
+
+            <div class="navRow" style="justify-content:space-between;">
+              <a class="btn secondary" href="disc-a.html">← replay from disc a</a>
+              <a class="btn secondary" href="disc-b.html">back to disc b →</a>
+            </div>
+
+          </div>
+        </div>
+      </section>
     </div>
   </div>
 
   <script>
     const yesBtn = document.getElementById("yesBtn");
-    const noBtn = document.getElementById("noBtn");
-    const msg = document.getElementById("msg");
+    const noBtn  = document.getElementById("noBtn");
+    const msgPill = document.getElementById("msgPill");
+    const hint = document.getElementById("hint");
+    const record = document.getElementById("record");
+    const recordLabel = document.getElementById("recordLabel");
 
     let noClicks = 0;
+
+    // tiny “spin” when hovering (cute + subtle)
+    record.addEventListener("mouseenter", () => record.classList.add("spinning"));
+    record.addEventListener("mouseleave", () => record.classList.remove("spinning"));
+
+    function setLabel(text){
+      if(recordLabel) recordLabel.textContent = text;
+    }
 
     noBtn.addEventListener("click", () => {
       noClicks++;
 
-      // Make YES bigger each time
-      const scale = 1 + Math.min(0.6, noClicks * 0.15);
+      // YES grows each time
+      const scale = 1 + Math.min(0.75, noClicks * 0.18);
       yesBtn.style.transform = `scale(${scale})`;
 
-      // Change NO button text each time
-      const texts = [
+      // NO changes personality each time
+      const noTexts = [
         "NO (cap)",
-        "NO (invalid)",
+        "NO (not valid)",
         "NO (try again)",
-        "NO (literally can’t)",
+        "NO (needle skipped)",
         "NO (nice attempt)"
       ];
-      noBtn.textContent = texts[Math.min(noClicks, texts.length - 1)];
+      noBtn.textContent = noTexts[Math.min(noClicks, noTexts.length - 1)];
 
-      msg.textContent = [
+      // Messages
+      const msgs = [
         "…are you sure about that?",
         "are you SURE?",
-        "pls",
-        "okay now you’re just playing",
-        "just press yes PLSSSS😭"
-      ][Math.min(noClicks - 1, 4)];
+        "limited pressing: only YES exists",
+        "okay now you’re just testing the UI",
+        "just press yes 😭"
+      ];
+      msgPill.textContent = msgs[Math.min(noClicks - 1, msgs.length - 1)];
+
+      const hints = [
+        "(spoiler: this page was not designed for “no”)",
+        "(the “no” button is basically decorative)",
+        "(this is a hostile environment for “no”)",
+        "(i’m watching you 😭)",
+        "(okay we’re done. hit yes.)"
+      ];
+      hint.textContent = hints[Math.min(noClicks - 1, hints.length - 1)];
+
+      // Make the label react too
+      const labelLines = [
+        "jackie…",
+        "be serious 😌",
+        "wrong choice",
+        "only yes",
+        "YES!!!"
+      ];
+      setLabel(labelLines[Math.min(noClicks - 1, labelLines.length - 1)]);
+
+      // small bounce
+      record.classList.add("spinning");
+      setTimeout(() => record.classList.remove("spinning"), 650);
     });
 
     yesBtn.addEventListener("click", () => {
-      window.location.href = "yay.html";
+      msgPill.textContent = "YAY ❤️ confirmed.";
+      setLabel("confirmed");
+      // quick spin before redirect
+      record.classList.add("spinning");
+      setTimeout(() => window.location.href = "yay.html", 450);
     });
   </script>
 </body>
