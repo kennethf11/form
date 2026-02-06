@@ -146,28 +146,20 @@
       const msgs = [
         "…are you sure about that?",
         "are you SURE?",
-        "limited pressing: only YES exists",
+        "stop playin",
         "okay now you’re just testing the UI",
-        "just press yes 😭"
+        "just press yes PLSSS😭"
       ];
       msgPill.textContent = msgs[Math.min(noClicks - 1, msgs.length - 1)];
 
-      const hints = [
-        "(spoiler: this page was not designed for “no”)",
-        "(the “no” button is basically decorative)",
-        "(this is a hostile environment for “no”)",
-        "(i’m watching you 😭)",
-        "(okay we’re done. hit yes.)"
-      ];
-      hint.textContent = hints[Math.min(noClicks - 1, hints.length - 1)];
 
       // Make the label react too
       const labelLines = [
         "jackie…",
-        "be serious 😌",
+        "BE SERIOUS",
         "wrong choice",
-        "only yes",
-        "YES!!!"
+        "BRAH",
+        "PLSSS"
       ];
       setLabel(labelLines[Math.min(noClicks - 1, labelLines.length - 1)]);
 
