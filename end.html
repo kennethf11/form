@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bonus Track 💿</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="panel">
+      <div class="topline">
+        <div class="badge"><span class="dot"></span> VIRTUAL VINYL • BONUS TRACK</div>
+        <a class="btn secondary" href="disc-b.html">← Back to Disc B</a>
+      </div>
+      <h1>Bonus Track</h1>
+      <p>Okay… last track. No skipping. 😌</p>
+    </div>
+
+    <div class="panel center">
+      <div class="cover" style="margin-bottom:14px;">
+        <img src="covers/bonus.jpg" alt="Bonus cover" />
+        <div class="smallmuted">Replace <b>covers/bonus.jpg</b> if you want</div>
+      </div>
+
+      <div class="bigQuestion">will you be my valentine? — kenneth</div>
+      <p id="msg">Choose wisely.</p>
+
+      <div class="choiceRow">
+        <button class="choice" id="yesBtn">YES 💘</button>
+        <button class="choice no" id="noBtn">NO</button>
+      </div>
+
+      <div class="navRow" style="justify-content:center; margin-top:18px;">
+        <a class="btn secondary" href="disc-a.html">Replay from Disc A</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const yesBtn = document.getElementById("yesBtn");
+    const noBtn = document.getElementById("noBtn");
+    const msg = document.getElementById("msg");
+
+    let noClicks = 0;
+
+    noBtn.addEventListener("click", () => {
+      noClicks++;
+
+      // Make YES bigger each time
+      const scale = 1 + Math.min(0.6, noClicks * 0.15);
+      yesBtn.style.transform = `scale(${scale})`;
+
+      // Change NO button text each time
+      const texts = [
+        "NO (cap)",
+        "NO (invalid)",
+        "NO (try again)",
+        "NO (literally can’t)",
+        "NO (nice attempt)"
+      ];
+      noBtn.textContent = texts[Math.min(noClicks, texts.length - 1)];
+
+      msg.textContent = [
+        "…are you sure about that?",
+        "the needle skipped 😌",
+        "limited pressing: only YES exists",
+        "okay now you’re just playing",
+        "just press yes 😭"
+      ][Math.min(noClicks - 1, 4)];
+    });
+
+    yesBtn.addEventListener("click", () => {
+      window.location.href = "yay.html";
+    });
+  </script>
+</body>
+</html>

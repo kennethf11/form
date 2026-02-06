@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Disc B • Jackie Edition 💿</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="player.js"></script>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="panel">
+      <div class="topline">
+        <div class="badge"><span class="dot"></span> VIRTUAL VINYL • DISC B</div>
+        <a class="btn secondary" href="disc-a.html">← Back to Disc A</a>
+      </div>
+
+      <h1>Disc B</h1>
+      <p>Same rule: click a track to play the clip.</p>
+    </div>
+
+    <div class="panel grid">
+      <div class="cover">
+        <img src="covers/disc-b.jpg" alt="Disc B cover" />
+        <div class="smallmuted">Disc B cover • replace <b>covers/disc-b.jpg</b></div>
+      </div>
+
+      <div class="trackPanel">
+        <div class="trackHeader">
+          <div class="title">Tracklist</div>
+          <div class="side">Side B</div>
+        </div>
+
+        <div class="track"
+          data-id="b1"
+          data-label="Glitter — Tyler, The Creator"
+          data-audio="audio/glitter.mp3">
+          <div class="left">
+            <div class="num">1</div>
+            <div class="meta">
+              <div class="song">Glitter</div>
+              <div class="artist">Tyler, The Creator</div>
+            </div>
+          </div>
+          <div class="playTag">click to play</div>
+        </div>
+
+        <div class="track"
+          data-id="b2"
+          data-label="Just One Day — BTS"
+          data-audio="audio/just-one-day.mp3">
+          <div class="left">
+            <div class="num">2</div>
+            <div class="meta">
+              <div class="song">Just One Day</div>
+              <div class="artist">BTS</div>
+            </div>
+          </div>
+          <div class="playTag">click to play</div>
+        </div>
+
+        <div class="track"
+          data-id="b3"
+          data-label="Disillusioned — Daniel Caesar"
+          data-audio="audio/disillusioned.mp3">
+          <div class="left">
+            <div class="num">3</div>
+            <div class="meta">
+              <div class="song">Disillusioned</div>
+              <div class="artist">Daniel Caesar</div>
+            </div>
+          </div>
+          <div class="playTag">click to play</div>
+        </div>
+
+        <div class="nowPlaying" id="nowPlaying"></div>
+
+        <div class="navRow">
+          <div class="smallmuted"><b>bonus track</b> is hidden on the next page…</div>
+          <a class="btn" href="bonus.html">Bonus track →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
