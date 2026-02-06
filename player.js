@@ -1,7 +1,7 @@
 let audio = null;
 let currentId = null;
 
-let nowTitleEl, timeEl, rangeEl, recordEl;
+let nowTitleEl, timeEl, rangeEl, recordEl, recordLabelEl;
 
 function fmtTime(sec) {
   if (!isFinite(sec)) return "0:00";
@@ -14,6 +14,19 @@ function fmtTime(sec) {
 function setSpinning(on) {
   if (!recordEl) return;
   recordEl.classList.toggle("spinning", !!on);
+}
+
+function baseLabelText() {
+  // fallback to the page title if present, else keep existing label text
+  const t = document.title || "";
+  if (t.toLowerCase().includes("disc a")) return "disc a";
+  if (t.toLowerCase().includes("disc b")) return "disc b";
+  return recordLabelEl ? recordLabelEl.dataset.base || recordLabelEl.textContent : "";
+}
+
+function setRecordLabel(text) {
+  if (!recordLabelEl) return;
+  recordLabelEl.textContent = text;
 }
 
 function stopAudio() {
@@ -35,11 +48,16 @@ function syncUI() {
 }
 
 function setupPlayer() {
-  // optional elements (only on Disc pages)
   nowTitleEl = document.getElementById("nowTitle");
   timeEl = document.getElementById("timeReadout");
   rangeEl = document.getElementById("progressRange");
   recordEl = document.getElementById("record");
+  recordLabelEl = document.getElementById("recordLabel");
+
+  // store base label for resets
+  if (recordLabelEl && !recordLabelEl.dataset.base) {
+    recordLabelEl.dataset.base = recordLabelEl.textContent.trim();
+  }
 
   const tracks = document.querySelectorAll("[data-audio]");
 
@@ -64,9 +82,13 @@ function setupPlayer() {
         if (audio.paused) {
           await audio.play();
           setSpinning(true);
+          if (nowTitleEl) nowTitleEl.textContent = `Now playing: ${label}`;
+          setRecordLabel(label);
         } else {
           audio.pause();
           setSpinning(false);
+          if (nowTitleEl) nowTitleEl.textContent = `Paused: ${label}`;
+          // keep label on pause (feels like a real player)
         }
         return;
       }
@@ -79,25 +101,38 @@ function setupPlayer() {
       if (nowTitleEl) nowTitleEl.textContent = `Now playing: ${label}`;
       if (rangeEl) rangeEl.value = "0";
       if (timeEl) timeEl.textContent = `0:00 / 0:00`;
+      setRecordLabel(label);
 
       audio.addEventListener("loadedmetadata", syncUI);
       audio.addEventListener("timeupdate", syncUI);
-      audio.addEventListener("pause", () => setSpinning(false));
-      audio.addEventListener("play", () => setSpinning(true));
+
+      audio.addEventListener("pause", () => {
+        setSpinning(false);
+      });
+
+      audio.addEventListener("play", () => {
+        setSpinning(true);
+      });
+
       audio.addEventListener("ended", () => {
         setSpinning(false);
         syncUI();
+        if (nowTitleEl) nowTitleEl.textContent = `Finished: ${label}`;
+        // reset label to disc name after it ends
+        setTimeout(() => setRecordLabel(baseLabelText()), 800);
       });
 
       try {
         await audio.play();
         setSpinning(true);
       } catch (e) {
-        // Some browsers require another click; UI still updates.
         setSpinning(false);
       }
     });
   });
+
+  // If they leave the page mid-play, stop cleanly
+  window.addEventListener("beforeunload", () => stopAudio());
 }
 
 document.addEventListener("DOMContentLoaded", setupPlayer);
