@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,650;9..144,850&family=Inter:wght@400;600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Playfair+Display:wght@500;700;800&display=swap');
 
 :root{
   --paper:#fff7ee;
@@ -22,7 +22,7 @@ body{
   min-height:100vh;
   padding:26px 18px;
   color:var(--ink);
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  font-family: "IBM Plex Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial;
   background:
     radial-gradient(900px 600px at 15% 10%, rgba(255,91,138,.12), transparent 60%),
     radial-gradient(900px 600px at 85% 25%, rgba(139,123,255,.14), transparent 55%),
@@ -69,7 +69,9 @@ body{
   box-shadow: 0 0 0 4px rgba(255,91,138,.14);
 }
 h1{
-  font-family: Fraunces, serif;
+  h1{
+  font-family: "Playfair Display", serif;
+  letter-spacing: .02em;
   margin:12px 0 6px;
   font-size: clamp(26px, 3.2vw, 44px);
   line-height:1.1;
@@ -294,8 +296,8 @@ p{ margin:8px 0; color:var(--muted); line-height:1.65; position:relative; z-inde
   flex:0 0 auto;
 }
 .meta{ min-width:0; }
-.song{ font-weight:900; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-.artist{ font-size:13px; color:#6b7186; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.song{ font-weight:600; letter-spacing:.01em; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.artist{ font-size:13px; opacity:.75; color:#6b7186; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 .playTag{
   flex:0 0 auto;
   font-size:12px;
