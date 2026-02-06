@@ -551,4 +551,18 @@ input[type="range"]{
   text-align:center;
   opacity:.85;
 }
+.recordWrap{
+  display:grid;
+  place-items:center;
+}
+
+.playingTitle{
+  font-family:"Playfair Display", serif;
+  font-size:18px;
+  letter-spacing:.04em;
+  text-align:center;
+  margin-bottom:12px;
+  opacity:.9;
+  transform: none !important;   /* prevents inheriting transforms */
+}
 
