@@ -4,8 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Disc B • 💿</title>
-  <link rel="stylesheet" href="styles.css" />
-  <script defer src="player.js"></script>
+ <link rel="stylesheet" href="./styles.css?v=9">
+<script defer src="./player.js?v=9"></script>
 </head>
 
 <body>
@@ -29,25 +29,23 @@
             <img src="covers/disc-b.jpg" alt="Disc B cover" />
           </div>
 
-          <div class="recordWell">
-            <div class="playingTitle" id="playingTitle">
-  side b • (select a track)
+         <div class="recordWell">
+  <div class="playingTitle" id="playingTitle">side b • (select a track)</div>
+
+  <div class="recordWrap">
+    <div class="record" id="record">
+      <div class="grooves"></div>
+
+      <!-- keep your center label image -->
+      <div class="labelCircle">
+        <img id="recordCover" src="covers/disc-b.jpg" alt="" />
+      </div>
+
+      <div class="centerHole"></div>
+    </div>
+  </div>
 </div>
 
-            <div class="record" id="record" aria-label="Spinning record">
-              <div class="grooves"></div>
-              <div class="labelCircle">
-  <img id="recordCover" src="covers/disc-b.jpg" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
-</div>
-
-                  <small>side b</small>
-                  <strong id="recordLabel">disc b</strong>
-                </div>
-              </div>
-              <div class="centerHole"></div>
-            </div>
-          </div>
-        </div>
       </section>
 
       <div class="hinge" aria-hidden="true"></div>
